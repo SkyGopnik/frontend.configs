@@ -1,8 +1,8 @@
 {
   "name": "frontend.configs",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "Configs for frontend",
   "repository": "https://github.com/SkyGopnik/frontend.configs",
   "author": "SkyGopnik",
-  "license": "ISC"
+  "license": "MIT"
 }

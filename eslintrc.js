@@ -27,7 +27,13 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module"
   },
-  plugins: ["react", "@typescript-eslint", "unused-imports"],
+  plugins: [
+    "react",
+    "react-hooks",
+    "import",
+    "@typescript-eslint",
+    "unused-imports"
+  ],
   rules: {
     "unused-imports/no-unused-imports": "error",
     "react-hooks/rules-of-hooks": "error",
