@@ -17,8 +17,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "next/core-web-vitals"
+    "plugin:@typescript-eslint/recommended"
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -59,7 +58,6 @@ module.exports = {
     "react/no-unescaped-entities": "off",
     "linebreak-style": ["error", "unix"],
     eqeqeq: ["error", "always"],
-    "@next/next/no-html-link-for-pages": "off",
     "react-hooks/exhaustive-deps": "off",
     "no-multiple-empty-lines": ["error", { max: 1, maxBOF: 0, maxEOF: 0 }],
     "import/order": [
