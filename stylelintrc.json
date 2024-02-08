@@ -1,0 +1,321 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "scss/double-slash-comment-whitespace-inside": null,
+    "selector-type-case": null,
+    "no-descending-specificity": null,
+    "selector-class-pattern": null,
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "custom-property-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "color-function-notation": null,
+    "alpha-value-notation": null,
+    "color-hex-length": null,
+    "property-no-vendor-prefix": null,
+    "value-keyword-case": [
+      "lower",
+      {
+        "ignoreProperties": [
+          "text-rendering"
+        ]
+      }
+    ],
+    "string-quotes": "double",
+    "order/properties-order": [
+      {
+        "groupName": "width",
+        "emptyLineBefore": "always",
+        "properties": [
+          "width",
+          "min-width",
+          "max-width",
+          "height",
+          "min-height",
+          "max-height"
+        ]
+      },
+      {
+        "emptyLineBefore": "always",
+        "properties": ["box-sizing"]
+      },
+      {
+        "groupName": "flex-grow",
+        "emptyLineBefore": "always",
+        "properties": [
+          "flex",
+          "flex-flow",
+          "flex-basis",
+          "flex-grow",
+          "flex-shrink"
+        ]
+      },
+      {
+        "groupName": "margin",
+        "emptyLineBefore": "always",
+        "properties": [
+          "margin",
+          "margin-top",
+          "margin-right",
+          "margin-bottom",
+          "margin-left",
+          "padding",
+          "padding-top",
+          "padding-right",
+          "padding-bottom",
+          "padding-left"
+        ]
+      },
+      {
+        "groupName": "position",
+        "emptyLineBefore": "always",
+        "properties": [
+          "position",
+          "top",
+          "left",
+          "right",
+          "bottom"
+        ]
+      },
+      {
+        "groupName": "flex-order",
+        "emptyLineBefore": "always",
+        "properties": [
+          "order",
+          "align-self"
+        ]
+      },
+      {
+        "groupName": "display",
+        "emptyLineBefore": "always",
+        "properties": [
+          "display",
+          "grid-template-columns",
+          "align-content",
+          "align-items",
+          "justify-content",
+          "flex-direction",
+          "vertical-align",
+          "flex-wrap",
+          "gap"
+        ]
+      },
+      {
+        "groupName": "font",
+        "emptyLineBefore": "always",
+        "properties": [
+          "font",
+          "font-family",
+          "font-size",
+          "font-style",
+          "font-weight",
+          "font-variant",
+          "font-size-adjust",
+          "font-stretch",
+          "line-height",
+          "letter-spacing"
+        ]
+      },
+      {
+        "groupName": "text",
+        "emptyLineBefore": "always",
+        "properties": [
+          "text-align",
+          "text-align-last",
+          "text-outline",
+          "text-transform",
+          "text-wrap",
+          "text-overflow",
+          "text-overflow-ellipsis",
+          "text-overflow-mode",
+          "text-decoration",
+          "text-emphasis",
+          "text-emphasis-color",
+          "text-emphasis-style",
+          "text-emphasis-position",
+          "text-indent",
+          "text-justify",
+          "text-shadow",
+          "white-space",
+          "word-spacing",
+          "word-wrap",
+          "word-break"
+        ]
+      },
+      {
+        "groupName": "list",
+        "emptyLineBefore": "always",
+        "properties": [
+          "list-style",
+          "list-style-position",
+          "list-style-type",
+          "list-style-image"
+        ]
+      },
+      {
+        "groupName": "animation",
+        "emptyLineBefore": "always",
+        "properties": [
+          "animation",
+          "animation-name",
+          "animation-duration",
+          "animation-play-state",
+          "animation-timing-function",
+          "animation-delay",
+          "animation-iteration-count",
+          "animation-direction"
+        ]
+      },
+      "content",
+      "cursor",
+      "resize",
+      {
+        "emptyLineBefore": "always",
+        "properties": [
+          "user-select",
+          "pointer-events"
+        ]
+      },
+      {
+        "emptyLineBefore": "always",
+        "properties": [
+          "transform",
+          "transform-origin"
+        ]
+      },
+      {
+        "groupName": "border",
+        "emptyLineBefore": "always",
+        "properties": [
+          "outline",
+          "outline-width",
+          "outline-style",
+          "outline-color",
+          "outline-offset",
+          "border",
+          "border-width",
+          "border-style",
+          "border-color",
+          "border-top",
+          "border-top-width",
+          "border-top-style",
+          "border-top-color",
+          "border-right",
+          "border-right-width",
+          "border-right-style",
+          "border-right-color",
+          "border-bottom",
+          "border-bottom-width",
+          "border-bottom-style",
+          "border-bottom-color",
+          "border-left",
+          "border-left-width",
+          "border-left-style",
+          "border-left-color",
+          "border-radius",
+          "border-top-left-radius",
+          "border-top-right-radius",
+          "border-bottom-right-radius",
+          "border-bottom-left-radius",
+          "border-image",
+          "border-image-source",
+          "border-image-slice",
+          "border-image-width",
+          "border-image-outset",
+          "border-image-repeat",
+          "border-spacing",
+          "border-collapse"
+        ]
+      },
+      {
+        "groupName": "transition",
+        "emptyLineBefore": "always",
+        "properties": [
+          "transition",
+          "transition-delay",
+          "transition-timing-function",
+          "transition-duration",
+          "transition-property"
+        ]
+      },
+      {
+        "emptyLineBefore": "always",
+        "properties": [
+          "overflow",
+          "overflow-x",
+          "overflow-y"
+        ]
+      },
+      {
+        "emptyLineBefore": "always",
+        "properties": [
+          "visibility",
+          "opacity"
+        ]
+      },
+      {
+        "emptyLineBefore": "always",
+        "properties": ["z-index"]
+      },
+      {
+        "emptyLineBefore": "always",
+        "properties": ["box-shadow"]
+      },
+      {
+        "emptyLineBefore": "always",
+        "properties": ["backdrop-filter"]
+      },
+      {
+        "groupName": "color",
+        "emptyLineBefore": "always",
+        "properties": [
+          "color",
+          "background",
+          "background-color",
+          "background-image",
+          "background-repeat",
+          "background-attachment",
+          "background-position",
+          "background-position-x",
+          "background-position-y",
+          "background-clip",
+          "background-origin",
+          "background-size"
+        ]
+      }
+    ],
+    "property-disallowed-list": [
+      "clip",
+      "zoom",
+      "float",
+      "clear",
+      "hyphens",
+      "table-layout",
+      "empty-cells",
+      "caption-side",
+      "nav-index",
+      "nav-right",
+      "nav-up",
+      "nav-down",
+      "nav-left",
+      "tab-size",
+      "box-decoration-break",
+      "quotes",
+      "counter-reset",
+      "counter-increment",
+      "table-layout",
+      "empty-cells",
+      "caption-side",
+      "nav-index",
+      "nav-up",
+      "nav-right",
+      "nav-down",
+      "nav-left"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "extends": ["@commitlint/config-conventional"],
+  "rules": {
+    "header-max-length": [0, "always"],
+    "footer-max-line-length": [0, "always"],
+    "body-max-line-length": [0, "always"],
+    "footer-leading-blank": [0, "always"],
+    "body-leading-blank": [0, "always"],
+    "type-enum": [
+      2,
+      "always",
+      [
+        "ci",
+        "docs",
+        "feature",
+        "fix",
+        "refactoring",
+        "revert",
+        "test"
+      ]
+    ]
+  }
+}
