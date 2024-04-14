@@ -1,18 +1,12 @@
-const generatePathGroup = (name, group) => {
+const generatePathGroup = (name) => {
   return [
-    {
-      pattern: `{${name}/**,**/_${name},**/_${name}/**}`,
-      group: group,
-      position: "after"
-    },
-    {
-      pattern: `./_${name}/**`,
-      group: group,
-      position: "after"
-    }
+    `/^${name}/`,
+    `/.\\_${name}/`,
+    `/.\\/${name}/`
   ];
 };
 
+// eslint-disable-next-line no-undef
 module.exports = {
   extends: [
     "eslint:recommended",
@@ -30,9 +24,10 @@ module.exports = {
   plugins: [
     "react",
     "react-hooks",
-    "import",
+    "import-helpers",
     "@typescript-eslint",
-    "unused-imports"
+    "unused-imports",
+    "@stylistic/eslint-plugin"
   ],
   rules: {
     "unused-imports/no-unused-imports": "error",
@@ -65,36 +60,66 @@ module.exports = {
     "linebreak-style": ["error", "unix"],
     eqeqeq: ["error", "always"],
     "react-hooks/exhaustive-deps": "off",
-    "no-multiple-empty-lines": ["error", { max: 1, maxBOF: 0, maxEOF: 0 }],
-    "import/order": [
+    "no-multiple-empty-lines": [
       "error",
       {
-        "newlines-between": "always",
+        max: 1,
+        maxBOF: 0,
+        maxEOF: 0
+      }
+    ],
+    "max-len": ["error", { "code": 80, "tabWidth": 2 }],
+    "react/jsx-max-props-per-line": [
+      "error",
+      {
+        "maximum": {
+          single: 3,
+          multi: 1
+        }
+      }
+    ],
+    "import-helpers/order-imports": [
+      "error",
+      {
+        newlinesBetween: "always",
         groups: [
-          ["builtin", "external"],
-          "internal",
+          "module",
+          ...[
+            "layouts",
+            "pages",
+            "components",
+            "hooks",
+            "functions",
+            "utils",
+            "assets",
+            "constants",
+            "types"
+          ].reduce(
+              (acc, name) => acc.concat(
+                  generatePathGroup(name)
+              ),
+              []
+          ),
+          "parent",
           "sibling",
-          "type",
           "index"
         ],
-        pathGroups: [
-          ...generatePathGroup("components", "internal"),
-          ...generatePathGroup("hooks", "internal"),
-          ...generatePathGroup("functions", "internal"),
-          ...generatePathGroup("utils", "internal"),
-          ...generatePathGroup("types", "type"),
-          {
-            pattern: "./*.scss",
-            group: "index",
-            position: "after"
-          },
-          {
-            pattern: "style/**",
-            group: "index",
-            position: "after"
-          }
-        ],
-        warnOnUnassignedImports: true
+        alphabetize: { order: "asc", ignoreCase: true }
+      }
+    ],
+    "eol-last": "error",
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "comma",
+          "requireLast": false
+        },
+        "singleline": {
+          "delimiter": "comma",
+          "requireLast": false
+        },
+        "multilineDetection": "brackets"
       }
     ]
   }
