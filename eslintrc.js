@@ -1,9 +1,5 @@
 const generatePathGroup = (name) => {
-  return [
-    `/^${name}/`,
-    `/.\\_${name}/`,
-    `/.\\/${name}/`
-  ];
+  return [`/^${name}/`, `/.\\_${name}/`, `/.\\/${name}/`];
 };
 
 // eslint-disable-next-line no-undef
@@ -11,7 +7,10 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript"
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -26,21 +25,13 @@ module.exports = {
     "react-hooks",
     "import-helpers",
     "@typescript-eslint",
-    "unused-imports",
-    "@stylistic/eslint-plugin"
+    "unused-imports"
   ],
   rules: {
     "unused-imports/no-unused-imports": "error",
     "react-hooks/rules-of-hooks": "error",
     "react/jsx-tag-spacing": 2,
     "no-extra-boolean-cast": "off",
-    indent: [
-      "error",
-      2,
-      {
-        SwitchCase: 1
-      }
-    ],
     quotes: ["error", "double"],
     "@typescript-eslint/semi": ["error", "always"],
     "@typescript-eslint/ban-ts-comment": "warn",
@@ -58,7 +49,7 @@ module.exports = {
     "@typescript-eslint/no-non-null-assertion": "off",
     "react/no-unescaped-entities": "off",
     "linebreak-style": ["error", "unix"],
-    eqeqeq: ["error", "always"],
+    eqeqeq: ["error", "always", { null: "ignore" }],
     "react-hooks/exhaustive-deps": "off",
     "no-multiple-empty-lines": [
       "error",
@@ -66,16 +57,6 @@ module.exports = {
         max: 1,
         maxBOF: 0,
         maxEOF: 0
-      }
-    ],
-    "max-len": ["error", { "code": 80, "tabWidth": 2 }],
-    "react/jsx-max-props-per-line": [
-      "error",
-      {
-        "maximum": {
-          single: 3,
-          multi: 1
-        }
       }
     ],
     "import-helpers/order-imports": [
@@ -94,12 +75,7 @@ module.exports = {
             "assets",
             "constants",
             "types"
-          ].reduce(
-              (acc, name) => acc.concat(
-                  generatePathGroup(name)
-              ),
-              []
-          ),
+          ].reduce((acc, name) => acc.concat(generatePathGroup(name)), []),
           "parent",
           "sibling",
           "index"
@@ -108,19 +84,26 @@ module.exports = {
       }
     ],
     "eol-last": "error",
-    "@typescript-eslint/member-delimiter-style": [
+    "@typescript-eslint/consistent-type-imports": "error",
+    "react/jsx-newline": "error",
+    "prettier/prettier": [
       "error",
       {
-        "multiline": {
-          "delimiter": "comma",
-          "requireLast": false
-        },
-        "singleline": {
-          "delimiter": "comma",
-          "requireLast": false
-        },
-        "multilineDetection": "brackets"
+        trailingComma: "none"
       }
-    ]
+    ],
+    "import/no-cycle": [2, { maxDepth: 1 }]
+  },
+  settings: {
+    "import/resolver": {
+      node: {
+        paths: ["src"],
+        extensions: [".js", ".jsx", ".ts", ".tsx"]
+      },
+      typescript: {
+        alwaysTryTypes: true,
+        project: ["tsconfig.json"]
+      }
+    }
   }
 };

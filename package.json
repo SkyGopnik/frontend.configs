@@ -1,6 +1,6 @@
 {
   "name": "frontend.configs",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Configs for frontend",
   "repository": "https://github.com/SkyGopnik/frontend.configs",
   "author": "SkyGopnik",
@@ -19,6 +19,10 @@
     "eslint-plugin-unused-imports": "3.1.0",
     "stylelint": "15.4.0",
     "stylelint-config-standard-scss": "7.0.1",
-    "stylelint-order": "6.0.2"
+    "stylelint-order": "6.0.2",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.30.0",
+    "eslint-plugin-prettier": "5.2.1",
+    "prettier": "3.3.3"
   }
 }
